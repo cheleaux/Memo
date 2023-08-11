@@ -1,0 +1,187 @@
+/* ------ Root ------ */
+:root {
+  --clr-main: #5a7684;
+  --clr-secondary: #c5d1eb;
+  --clr-accent: #ff9900;
+  --clr-text: #000000;
+  --clr-bg: white;
+
+  --ff-main: satoshi, sans-serif;
+
+  --ff-head: var(--ff-main);
+  --ff-body: var(--ff-main);
+
+  --fw-body: 400;
+  --fw-head: 900;
+  --fw-sub: 500;
+
+  --fs-120: 0.75rem;
+  --fs-140: 0.875rem;
+  --fs-160: 1rem;
+  --fs-200: 1.25rem;
+  --fs-360: 2.25rem;
+}
+
+/* ------- Reset ------- */
+html {
+  box-sizing: border-box;
+  font-size: 16px;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+ol,
+ul {
+  margin: 0;
+  padding: 0;
+  font-family: var(--ff-main);
+  font-weight: normal;
+}
+
+ol,
+ul {
+  list-style: none;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  text-decoration: none;
+  color: rgb(27, 27, 27);
+}
+
+/* ------ logo ------   */
+
+header {
+  text-align: center;
+  width: 100%;
+  padding: 20px;
+  margin-bottom: 100px;
+}
+
+main {
+  width: 100%;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+}
+
+.heading-1 {
+  font-size: var(--fs-360);
+  font-weight: var(--fw-head);
+  color: var(--clr-main);
+}
+
+.heading-2 {
+  font-size: var(--fs-200);
+  font-weight: var(--fw-head);
+  color: var(--clr-secondary);
+  margin-top: 7px;
+}
+
+.memo-input-sec {
+  align-items: center;
+}
+
+.memo-pad-container {
+  width: min(400px, 70%);
+}
+
+form {
+  width: 100%;
+  margin-bottom: 40px;
+}
+
+.memo-input {
+  width: 100%;
+  margin: 15px 0;
+  display: block;
+  border: none;
+  border-radius: 5px;
+}
+
+.text-input {
+  background-color: rgb(248, 248, 248);
+  box-shadow: 1px 1px 2px 1px rgba(0, 0, 0, 0.15) inset;
+  font-size: var(--fs-body);
+  font-family: var(--ff-body);
+  padding: 10px;
+}
+
+textarea {
+  height: max-content;
+  min-height: 10px;
+}
+
+input[type="submit"] {
+  background-color: var(--clr-main);
+  height: 35px;
+  font-weight: var(--fw-sub);
+  color: var(--clr-bg);
+}
+
+input[type="submit"]:hover {
+  background-color: var(--clr-secondary);
+}
+
+input[type="submit"]:active {
+  background-color: var(--clr-accent);
+}
+
+.memo-library {
+  margin: 100px auto;
+  width: min(1220px, 75%);
+  display: flex;
+  flex-direction: column;
+}
+
+.memo-library-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  flex-grow: inherit;
+  gap: 70px;
+  margin-top: 70px;
+  justify-content: center;
+}
+
+.memo-card {
+  height: max-content;
+  max-width: 360px;
+  border-radius: 5px;
+  overflow: hidden;
+  box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
+}
+
+.card-header {
+  width: 100%;
+  padding: 3px 23px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  gap: 23px;
+  background-color: var(--clr-main);
+  color: var(--clr-bg);
+  font-weight: var(--fw-sub);
+  font-size: var(--fs-120);
+}
+
+.card-body-container {
+  padding: 15px 23px;
+}
