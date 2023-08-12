@@ -20,7 +20,7 @@
         <h2 class="heading-2">Create you memo</h2>
       </section>
       <section class="memo-pad-container">
-        <form class="memo-pad">
+        <form class="memo-pad" id="memo-form" onsubmit="pinMemo(event)">
           <input
             type="text"
             name="title"
@@ -32,13 +32,19 @@
             name="body"
             id="body"
             cols="30"
-            rows="7"
+            rows="4"
             height="50px"
             maxlength="300"
             class="memo-body memo-input text-input"
             placeholder="Unburden you mind..."
           ></textarea>
-          <input type="submit" value="Pin Memo" class="memo-input pin-btn" />
+          <input
+            id="submitBtn"
+            type="submit"
+            onclick=""
+            value="Pin Memo"
+            class="memo-input pin-btn"
+          />
         </form>
       </section>
     </main>
@@ -81,4 +87,38 @@
       </div>
     </div>
   </body>
+  <script>
+    function pinMemo(pin) {
+      pin.preventDefault();
+
+      const title = document.forms["memo-form"]["title"];
+      const body = document.getElementById("body");
+
+      function getDate(){
+        const mm = new Date()
+        .toLocaleDateString("en-GB", { month: "2-digit" })
+        .toString().slice(0, 2);
+        const dd = new Date().toLocaleDateString("en-GB", { day: "2-digit" });
+        const yy = new Date().getFullYear().toString().substr(-2);
+
+        let memoDate = `${dd}<div class="bullet"></div>${mm}<div class="bullet"></div>${yy}`
+        
+        return memoDate
+      }
+
+      const date = getDate()
+
+      const memoCard = 
+       `<div class="memo-card">
+          <header class="card-header">
+            <span class="date">${date}</span><span class="title">${title.value}<span>
+          </header>
+          <div class="card-body-container">
+           <p class="card-body">${body.value}</p>
+          </div>
+        </div>`;
+
+      console.log(memoCard)
+    }
+  </script>
 </html>

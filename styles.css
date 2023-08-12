@@ -126,7 +126,7 @@ form {
 
 textarea {
   height: max-content;
-  min-height: 10px;
+  min-height: 30px;
 }
 
 input[type="submit"] {
