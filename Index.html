@@ -12,7 +12,7 @@
     <title>Memo</title>
   </head>
   <body>
-    <header><img src="Assets/Memo Logo.svg" alt="Logo" class="logo" /></header>
+    <header><a href="#"><img src="Assets/Memo Logo.svg" alt="Logo" class="logo" /></a></header>
     <main class="memo-input-sec">
       <section class="headings">
         <h1 class="heading-1">Collate Your Ideas</h1>
@@ -27,6 +27,7 @@
             id="title"
             class="memo-title memo-input text-input"
             placeholder="Title..."
+            maxlength="40"
           />
           <textarea
             name="body"
@@ -50,10 +51,11 @@
     </main>
     <div class="memo-library">
       <h2 class="heading-1">Library</h2>
-      <div class="memo-library-container">
-        <div class="memo-card">
+      <ul id="memo-library-container" class="memo-library-container">
+        <li class="memo-card">
           <header class="card-header">
-            <span class="date">18 . 08 . 23</span>
+            <span class="date">18 <div class="bullet"></div> 08 <div class="bullet"></div> 23</span>
+            <span class="title"></span>
           </header>
           <div class="card-body-container">
             <p class="card-body">
@@ -61,38 +63,14 @@
               orhorghogogoghn orjvoighogherogher
             </p>
           </div>
-        </div>
-        <div class="memo-card">
-          <header class="card-header">
-            <span class="date">18 . 08 . 23</span>
-          </header>
-          <div class="card-body-container">
-            <p class="card-body">
-              ojhfouerhfguofogoeroorgorogog rofofghogheroghrgohgoer
-              orhorghogogoghn orjvoighogherogher
-            </p>
-          </div>
-        </div>
-        <div class="memo-card">
-          <header class="card-header">
-            <span class="date">18 . 08 . 23</span>
-          </header>
-          <div class="card-body-container">
-            <p class="card-body">
-              ojhfouerhfguofogoeroorgorogog rofofghogheroghrgohgoer
-              orhorghogogoghn orjvoighogherogher
-            </p>
-          </div>
-        </div>
-      </div>
+        </li>
+        </li>
+      </ul>
     </div>
   </body>
   <script>
     function pinMemo(pin) {
       pin.preventDefault();
-
-      const title = document.forms["memo-form"]["title"];
-      const body = document.getElementById("body");
 
       function getDate(){
         const mm = new Date()
@@ -101,24 +79,27 @@
         const dd = new Date().toLocaleDateString("en-GB", { day: "2-digit" });
         const yy = new Date().getFullYear().toString().substr(-2);
 
-        let memoDate = `${dd}<div class="bullet"></div>${mm}<div class="bullet"></div>${yy}`
+        let memoDate = `${dd} <div class="bullet"></div> ${mm} <div class="bullet"></div> ${yy}`
         
         return memoDate
       }
 
       const date = getDate()
-
+      const title = document.forms["memo-form"]["title"];
+      const body = document.getElementById("body");
       const memoCard = 
-       `<div class="memo-card">
+       `<li class="memo-card">
           <header class="card-header">
             <span class="date">${date}</span><span class="title">${title.value}<span>
           </header>
           <div class="card-body-container">
            <p class="card-body">${body.value}</p>
           </div>
-        </div>`;
+        </li>`;
 
-      console.log(memoCard)
+      let ul = document.getElementById("memo-library-container");
+      ul.insertAdjacentHTML("afterbegin", memoCard);
+
     }
   </script>
 </html>

@@ -174,12 +174,31 @@ input[type="submit"]:active {
   padding: 3px 23px;
   display: flex;
   align-items: center;
+  justify-content: space-between;
   margin: 0;
   gap: 23px;
   background-color: var(--clr-main);
   color: var(--clr-bg);
   font-weight: var(--fw-sub);
   font-size: var(--fs-120);
+}
+
+.title {
+  max-height: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  width:200px;
+}
+
+.bullet{
+  display: inline-block;
+  width: 5px;
+  height: 5px;
+  margin: 0 4px;
+  vertical-align: 10%;
+  background-color: var(--clr-bg);
+  border-radius: 50px;
 }
 
 .card-body-container {
