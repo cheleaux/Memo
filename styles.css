@@ -188,7 +188,7 @@ input[type="submit"]:active {
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
-  width:200px;
+  max-width:200px;
 }
 
 .bullet{
