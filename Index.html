@@ -22,6 +22,7 @@
       <section class="memo-pad-container">
         <form class="memo-pad" id="memo-form" onsubmit="pinMemo(event)">
           <input
+            required
             type="text"
             name="title"
             id="title"
@@ -30,6 +31,7 @@
             maxlength="40"
           />
           <textarea
+            required
             name="body"
             id="body"
             cols="30"
@@ -50,21 +52,11 @@
       </section>
     </main>
     <div class="memo-library">
-      <h2 class="heading-1">Library</h2>
+      <div class="library-header">
+        <h2 class="heading-1">Library</h2>
+        <button id="clearBtn">Clear All</button>
+      </div>
       <ul id="memo-library-container" class="memo-library-container">
-        <li class="memo-card">
-          <header class="card-header">
-            <span class="date">18 <div class="bullet"></div> 08 <div class="bullet"></div> 23</span>
-            <span class="title"></span>
-          </header>
-          <div class="card-body-container">
-            <p class="card-body">
-              ojhfouerhfguofogoeroorgorogog rofofghogheroghrgohgoer
-              orhorghogogoghn orjvoighogherogher
-            </p>
-          </div>
-        </li>
-        </li>
       </ul>
     </div>
   </body>
