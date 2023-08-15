@@ -42,9 +42,9 @@ function pinMemo(pin) {
         </li>`;
 
     let memoObj = {
-        title: `${title}`,
-        body: `${body}`,
-        date: `${date}`,
+        title: title.value,
+        body: body.value,
+        date: date,
     };
 
     memoArray.push(memoObj);
