@@ -16,16 +16,19 @@ document.getElementById("clearBtn").addEventListener("click", () => {
     memoArray = [];
 });
  
-ul.addEventListener('click', () => {
+ul.addEventListener('click', deleteMemo);
+function deleteMemo(event) {
     if (event.target.classList.contains("deleteBtn")){
-        const deletionTarget = event.target.closest(".memo-card");
-        const indexOfMemo = Array.from(ul.children).indexOf(deletionTarget);
-        memoArray.splice(indexOfMemo, 1);
-        localStorage.setItem('memos', JSON.stringify(memoArray));
-        deletionTarget.remove();
-    }});
+        let deletionTarget = event.target.closest(".memo-card");
+        let indexOfMemo = Array.from(ul.children).indexOf(deletionTarget);
 
+        console.log(deletionTarget);
 
+        // memoArray.splice(indexOfMemo, 1);
+        // localStorage.setItem('memos', JSON.stringify(memoArray));
+        // deletionTarget.remove();
+    }
+};
 
 
 memoArray.forEach(({ date, title, body }) => {
