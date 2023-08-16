@@ -181,6 +181,12 @@ input[type="submit"]:active, #clearBtn:active{
   border-radius: 5px;
   overflow: hidden;
   box-shadow: 0px 3px 3px 0px rgba(0, 0, 0, 0.15);
+
+}
+.memo-card:hover {
+  .taskbar {
+    display:block;
+  };
 }
 
 .card-header {
@@ -217,4 +223,32 @@ input[type="submit"]:active, #clearBtn:active{
 
 .card-body-container {
   padding: 15px 23px;
+}
+
+.taskbar {
+  display: none;
+  width: 100%;
+  height: 30px;
+  text-align: center;
+  padding: 2px 0;
+}
+
+.deleteBtn {
+  height: 20px;
+  width: 20px;
+  color: var(--clr-secondary);
+  border: none;
+  border-radius: 2px;
+  background-color: white;
+  padding: 3px 0;
+}
+
+.deleteBtn:hover {
+  color: red;
+  background-color: whitesmoke;
+}
+
+.deleteBtn:active {
+  color: var(--clr-secondary);
+  background-color: whitesmoke;
 }

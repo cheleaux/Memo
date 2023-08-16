@@ -9,6 +9,25 @@ let memoArray = localStorage.getItem('memos') ?
 JSON.parse(localStorage.getItem('memos')) : [];
 
 
+
+document.getElementById("clearBtn").addEventListener("click", () => {
+    localStorage.clear();
+    ul.innerHTML = ``;
+    memoArray = [];
+});
+ 
+ul.addEventListener('click', () => {
+    if (event.target.classList.contains("deleteBtn")){
+        const deletionTarget = event.target.closest(".memo-card");
+        const indexOfMemo = Array.from(ul.children).indexOf(deletionTarget);
+        memoArray.splice(indexOfMemo, 1);
+        localStorage.setItem('memos', JSON.stringify(memoArray));
+        deletionTarget.remove();
+    }});
+
+
+
+
 memoArray.forEach(({ date, title, body }) => {
     const memoCard = 
         `<li class="memo-card">
@@ -18,15 +37,12 @@ memoArray.forEach(({ date, title, body }) => {
             <div class="card-body-container">
                 <p class="card-body">${body}</p>
             </div>
+            <div class="taskbar"><button class="deleteBtn"><i class="bi bi-trash3-fill"></i></button></div>
         </li>`;
     ul.insertAdjacentHTML("afterbegin", memoCard);
 });
 
-document.getElementById("clearBtn").addEventListener("click", () => {
-    localStorage.clear();
-    ul.innerHTML = ``;
-    memoArray = [];
-});
+
  
 
 function pinMemo(pin) {
@@ -39,6 +55,7 @@ function pinMemo(pin) {
             <div class="card-body-container">
                 <p class="card-body">${body.value}</p>
             </div>
+            <div class="taskbar"><button class="deleteBtn"><i class="bi bi-trash3-fill"></i></button></div>
         </li>`;
 
     let memoObj = {
