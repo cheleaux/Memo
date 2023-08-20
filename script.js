@@ -1,34 +1,20 @@
     
 const ul = document.getElementById("memo-library-container");
-let body = document.getElementById("body");
-let title = document.forms["memo-form"]["title"];
+let body = document.forms["memo-form"]["body-input"];
+let title = document.forms["memo-form"]["title-input"];
 
 let date = getDate();
 
 let memoArray = localStorage.getItem('memos') ?
 JSON.parse(localStorage.getItem('memos')) : [];
 
-
+ul.addEventListener("click", deleteMemo);
 
 document.getElementById("clearBtn").addEventListener("click", () => {
     localStorage.clear();
     ul.innerHTML = ``;
     memoArray = [];
 });
- 
-ul.addEventListener('click', deleteMemo);
-function deleteMemo(event) {
-    if (event.target.classList.contains("deleteBtn")){
-        let deletionTarget = event.target.closest(".memo-card");
-        let indexOfMemo = Array.from(ul.children).indexOf(deletionTarget);
-
-        console.log(deletionTarget);
-
-        // memoArray.splice(indexOfMemo, 1);
-        // localStorage.setItem('memos', JSON.stringify(memoArray));
-        // deletionTarget.remove();
-    }
-};
 
 
 memoArray.forEach(({ date, title, body }) => {
@@ -46,7 +32,6 @@ memoArray.forEach(({ date, title, body }) => {
 });
 
 
- 
 
 function pinMemo(pin) {
     pin.preventDefault();
@@ -64,7 +49,7 @@ function pinMemo(pin) {
     let memoObj = {
         title: title.value,
         body: body.value,
-        date: date,
+        date: date
     };
 
     memoArray.push(memoObj);
@@ -72,6 +57,19 @@ function pinMemo(pin) {
     JSON.stringify(memoArray));
     ul.insertAdjacentHTML("afterbegin", memoCard);
     document.forms[0].reset();
+};
+
+
+
+function deleteMemo() {
+    if (event.target.classList.contains("deleteBtn")){
+        console.log("clicked")
+        // deletionTarget = event.target.closest(".memo-card");
+        // deletionTarget.remove();
+    }
+    // memoArray.splice(indexOfMemo, 1);
+    // localStorage.setItem('memos', JSON.stringify(memoArray));
+    // deletionTarget.remove();
 };
 
 function getDate(){
